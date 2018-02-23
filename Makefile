@@ -1,5 +1,4 @@
 IMAGE = olinicola/serverless
-# VERSION = $(shell cat VERSION)
 VERSION = $(shell cat Dockerfile | awk '/SERVERLESS_VERSION=/ { split($$0, a, "=") ; print a[2]}')
 
 .PHONY: build push release
@@ -7,7 +6,7 @@ VERSION = $(shell cat Dockerfile | awk '/SERVERLESS_VERSION=/ { split($$0, a, "=
 default: release
 
 build: Dockerfile
-	docker build -t $(IMAGE):$(VERSION) . # --no-cache
+	docker build -t $(IMAGE):$(VERSION) .
 
 push:
 	docker push $(IMAGE):$(VERSION)

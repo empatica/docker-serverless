@@ -9,7 +9,7 @@ ENV SERVERLESS_VERSION=1.26.0
 
 RUN npm install -g serverless@$SERVERLESS_VERSION && \
     mkdir -p /serverless && \
-    chown node /serverless
+    chown -R node /serverless
 
 USER node
 
@@ -17,9 +17,6 @@ RUN pip install --user awscli && \
     mkdir -p /home/node/.aws
 
 ENV PATH /home/node/.local/bin:$PATH
-
-VOLUME "/serverless"
-VOLUME "/home/node/.aws"
 
 WORKDIR /serverless
 
