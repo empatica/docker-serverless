@@ -1,13 +1,15 @@
-FROM node:9.5.0
+FROM node:10.9.0
 
 RUN apt-get update && \
     apt-get -y install less python python-pip python-dev groff && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV SERVERLESS_VERSION=1.26.0
+ENV SERVERLESS_VERSION=1.30.1
+ENV WT_VERSION=10.0.2
 
 RUN npm install -g serverless@$SERVERLESS_VERSION && \
+	npm install -g wt-cli@$WT_VERSION && \
     mkdir -p /serverless && \
     chown -R node /serverless
 
