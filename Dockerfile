@@ -5,8 +5,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV SERVERLESS_VERSION=1.30.1
-ENV WT_VERSION=10.0.2
+ENV SERVERLESS_VERSION=1.30.3
+ENV WT_VERSION=10.0.3
 
 RUN npm install -g serverless@$SERVERLESS_VERSION && \
 	npm install -g wt-cli@$WT_VERSION && \
