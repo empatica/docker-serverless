@@ -1,4 +1,4 @@
-IMAGE = olinicola/serverless
+IMAGE = empatica/serverless
 VERSION = $(shell cat Dockerfile | awk '/SERVERLESS_VERSION=/ { split($$0, a, "=") ; print a[2]}')
 
 .PHONY: build push release
